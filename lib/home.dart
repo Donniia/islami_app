@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/modules/hadeth/hadeth_screen.dart';
 import 'package:islami/modules/quran/quran_screen.dart';
 
 class Home extends StatefulWidget {
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<Widget> screens = [
     Quran(),
+    Hadeth(),
   ];
   int selectedindex = 0;
 
