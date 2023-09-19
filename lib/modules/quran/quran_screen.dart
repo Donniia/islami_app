@@ -167,7 +167,10 @@ class _QuranState extends State<Quran> {
                 itemCount: suranames.length,
                 itemBuilder: (context, index) => GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, QuranDetails.routeName);
+                        Navigator.pushNamed(context, QuranDetails.routeName,
+                            arguments: suraDetails(
+                                suraName: suranames[index],
+                                suraNumber: "${index + 1}"));
                       },
                       child: QuranItem(
                           suraName: suranames[index],
@@ -176,4 +179,11 @@ class _QuranState extends State<Quran> {
       ],
     );
   }
+}
+
+class suraDetails {
+  String suraName;
+  String suraNumber;
+
+  suraDetails({required this.suraName, required this.suraNumber});
 }

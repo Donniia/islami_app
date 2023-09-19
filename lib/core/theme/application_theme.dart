@@ -31,8 +31,8 @@ class AppTheme {
             fontSize: 25,
             color: Colors.black,
           ),
-          bodySmall: GoogleFonts.inter(
-            fontWeight: FontWeight.w400,
+          bodySmall: GoogleFonts.elMessiri(
+            fontWeight: FontWeight.bold,
             fontSize: 20,
           )));
   static ThemeData darktheme = ThemeData(
