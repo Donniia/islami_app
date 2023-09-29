@@ -134,7 +134,6 @@ class _QuranState extends State<Quran> {
       children: [
         Image.asset("assets/images/quran2.png"),
         Divider(
-          color: theme.primaryColor,
           thickness: 1.2,
         ),
         Row(
@@ -142,24 +141,24 @@ class _QuranState extends State<Quran> {
             Expanded(
                 child: Text(
               "رقم السورة",
-              style: theme.textTheme.bodyLarge,
+              style: theme.textTheme.bodyLarge!
+                  .copyWith(color: theme.colorScheme.secondary),
               textAlign: TextAlign.center,
             )),
             Container(
               width: 1.2,
               height: 45,
-              color: theme.primaryColor,
-            ),
+                color: theme.colorScheme.onSecondary),
             Expanded(
                 child: Text(
-              "اسم السورة",
-              style: theme.textTheme.bodyLarge,
+                  "اسم السورة",
+              style: theme.textTheme.bodyLarge!
+                  .copyWith(color: theme.colorScheme.secondary),
               textAlign: TextAlign.center,
             )),
           ],
         ),
         Divider(
-          color: theme.primaryColor,
           thickness: 1.2,
         ),
         Expanded(

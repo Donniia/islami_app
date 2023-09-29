@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/core/provider/app_provider.dart';
+import 'package:islami/core/theme/application_theme.dart';
 import 'package:islami/modules/quran/quran_screen.dart';
+import 'package:provider/provider.dart';
 
 class QuranDetails extends StatefulWidget {
   static const String routeName = "quranview";
@@ -12,6 +15,7 @@ class QuranDetails extends StatefulWidget {
 class _QuranDetailsState extends State<QuranDetails> {
   String content = "";
   List<String> allVerses = [];
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +25,11 @@ class _QuranDetailsState extends State<QuranDetails> {
     }
     var mediaquery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
-
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
+                image: AssetImage(appProvider.backgroundImage()),
                 fit: BoxFit.cover)),
         child: Scaffold(
           appBar: AppBar(
@@ -36,9 +40,9 @@ class _QuranDetailsState extends State<QuranDetails> {
             padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),
             width: mediaquery.width,
             height: mediaquery.height,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 120),
+            margin: EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 120),
             decoration: BoxDecoration(
-                color: Color(0xffF8F8F8).withOpacity(0.8),
+                color: theme.colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(25)),
             child: Column(
               children: [
@@ -55,12 +59,11 @@ class _QuranDetailsState extends State<QuranDetails> {
                     Icon(
                       Icons.play_circle,
                       size: 30,
-                      color: Colors.black,
+                      color: theme.colorScheme.onSecondary,
                     ),
                   ],
                 ),
                 Divider(
-                  color: theme.primaryColor,
                   indent: 30,
                   endIndent: 30,
                   thickness: 2,
@@ -69,7 +72,7 @@ class _QuranDetailsState extends State<QuranDetails> {
                   child: ListView.builder(
                     itemBuilder: (context, index) => Text(
                       content,
-                      style: theme.textTheme.bodySmall,
+                      style: theme.textTheme.bodySmall!.copyWith(height: 1.6),
                       textAlign: TextAlign.center,
                     ),
                     itemCount: 1,

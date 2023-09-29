@@ -14,18 +14,19 @@ class QuranItem extends StatelessWidget {
         Expanded(
             child: Text(
           suraNumber,
-          style: theme.textTheme.bodyMedium,
+          style: theme.textTheme.bodyMedium!
+              .copyWith(color: theme.colorScheme.secondary),
           textAlign: TextAlign.center,
         )),
         Container(
           width: 1.2,
           height: 45,
-          color: theme.primaryColor,
-        ),
+            color: theme.colorScheme.onSecondary),
         Expanded(
             child: Text(
-          suraName,
-          style: theme.textTheme.bodyMedium,
+              suraName,
+          style: theme.textTheme.bodyMedium!
+              .copyWith(color: theme.colorScheme.secondary),
           textAlign: TextAlign.center,
         )),
       ],
