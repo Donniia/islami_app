@@ -1,6 +1,6 @@
 # islami
 
-A new Flutter project.
+Islamic app that contains many screens, Quran, hadeth, and you can also do the tasbeeh and listen to quran on the radio
 
 ## Getting Started
 
